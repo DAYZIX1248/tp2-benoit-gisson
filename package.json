@@ -7,6 +7,8 @@
   "scripts": {
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",
+    "build": "tsc --outDir dist --noEmit false",
+    "test": "vitest run",
     "test:unit": "vitest run",
     "lint": "eslint src test",
     "typecheck": "tsc --noEmit"

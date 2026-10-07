@@ -15,6 +15,5 @@ if [ "$status" -ne 0 ]; then
   echo "--- au moins un check est rouge (voir plus haut)"
 fi
 
-# On renvoie toujours 0 : un check rouge ne doit pas interrompre l'agent en plein
-# travail, il le verra dans la sortie et corrigera de lui-meme. (ticket INFRA-231)
-exit 0
+# Retourne le statut reel des checks afin que les appelants (hooks, CI) puissent detecter les erreurs
+exit $status

@@ -16,11 +16,11 @@ l'instant (la vraie base arrive avec INFRA-140).
 ## Conventions
 
 1. **Toute fonction exportee porte une JSDoc** d'une ligne minimum, qui dit ce qu'elle
-   fait et pas comment.
-2. **Les erreurs remontent en `Result`, jamais en `throw`.** Une fonction qui peut
-   echouer renvoie `{ ok: true, value }` ou `{ ok: false, error }`. Cette convention est
-   la regle du depot depuis la refonte de mars : on ne veut plus de `try/catch` disperses
-   dans les routes.
+   fait et pas comment (sauf derogation locale explicite comme dans `src/lib/AGENTS.md`).
+2. **Les fonctions metier et calculs retournent un `Result`**, jamais de `throw` non gere.
+   Une fonction qui peut echouer renvoie `{ ok: true, value }` ou `{ ok: false, error }`.
+   Les validateurs de requetes peuvent lever une `ValidationError` capturee proprement
+   dans les routes avec renvoi de code HTTP 400.
 3. Les dates circulent en **ISO 8601 UTC**, toujours en `string`, jamais en `Date`.
 4. Un module par responsabilite dans `src/lib/`. Pas de fichier `utils.ts`.
 5. Les imports relatifs portent l'extension `.js` (ESM).

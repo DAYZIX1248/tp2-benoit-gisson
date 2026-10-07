@@ -11,7 +11,7 @@ permission:
   grep: allow
   list: allow
   lsp: allow
-  edit: allow
+  edit: deny
   task: deny
   webfetch: deny
   bash:

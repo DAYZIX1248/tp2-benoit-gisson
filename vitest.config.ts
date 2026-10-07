@@ -4,7 +4,7 @@ import { defineConfig } from "vitest/config";
 // La convention du depot est *.spec.ts.
 export default defineConfig({
   test: {
-    include: ["test/**/*.spec.ts"],
+    include: ["test/**/*.{spec,test}.ts"],
     environment: "node"
   }
 });
